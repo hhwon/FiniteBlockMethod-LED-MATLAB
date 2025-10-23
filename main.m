@@ -4,8 +4,8 @@
 clear; clc; close all;
 
 %% 1. 加载输入文件
-CASE = load_json_case('case_axisym_cylinder.json');
-fprintf('加载输入文件: case2_cantilever_twoblock.json\n');
+CASE = load_json_case('case4_axisym_cylinder.json');
+fprintf('加载输入文件: case4_axisym_cylinder.json\n');
 fprintf('离散化参数 nt = %d\n\n', CASE.nt);
 
 %% 2. 单元节点扩展：将4节点扩展为 mappings 所需的节点数

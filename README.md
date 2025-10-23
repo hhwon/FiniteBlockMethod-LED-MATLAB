@@ -407,6 +407,20 @@ $$
 
 ---
 
+## 参考文献
+
+本项目的理论基础和方法来源于以下学术论文：
+
+1. **Huang W, Yang J J, Sladek J, et al.** Meshless finite block method with infinite elements for axisymmetric cracked solid made of functionally graded materials[J]. *European Journal of Mechanics-A/Solids*, 2023, 97: 104852.  
+   https://doi.org/10.1016/j.euromechsol.2022.104852
+
+2. **Wen P H, Cao P, Korakianitis T.** Finite block method in elasticity[J]. *Engineering Analysis with Boundary Elements*, 2014, 46: 116-125.  
+   https://doi.org/10.1016/j.enganabound.2014.05.006
+
+这些文献提供了强形式配点法和有限块体法的理论框架、数值实现细节以及验证算例。
+
+---
+
 ## 作者
 
 - 作者：W. Huang

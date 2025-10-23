@@ -43,22 +43,8 @@
       "blk": 0,
       "face": "left",
       "bc": "traction_x",
-      "value": -5.0,
-      "comment": "内表面施加径向压力 pi = 5.0 MPa（负号表示向内）"
-    },
-    {
-      "blk": 0,
-      "face": "right",
-      "bc": "traction_x",
-      "value": 0.0,
-      "comment": "外表面无压力（自由边界）"
-    },
-    {
-      "blk": 0,
-      "face": "top",
-      "bc": "traction_y",
-      "value": 0.0,
-      "comment": "顶部无轴向载荷（自由边界）"
+      "value": 5.0,
+      "comment": "内表面施加径向压力 pi = 5.0 MPa"
     }
   ],
   "comment": "轴对称厚壁圆柱算例 - Lamé 解析解验证：内压 pi=5.0 MPa，外压 po=0，a=1.0，b=2.0。解析解：σr(r) = pi*a²/(b²-a²)*(1-b²/r²), σθ(r) = pi*a²/(b²-a²)*(1+b²/r²), σz = 0（平面应变）"
