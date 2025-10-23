@@ -1,0 +1,65 @@
+{
+  "geometry": {
+    "blocks": [
+      {
+        "id": 0,
+        "vertices": [[1.0, 0.0], [2.0, 0.0], [2.0, 3.0], [1.0, 3.0]],
+        "type": 0,
+        "comment": "轴对称厚壁圆柱：内径 r=1.0，外径 r=2.0，高度 z=3.0"
+      }
+    ]
+  },
+  "discretization": {
+    "node": 31,
+    "comment": "每个方向 31 个配点"
+  },
+  "material": {
+    "model": "linear_elastic",
+    "axisymmetric": true,
+    "defaults": {
+      "E": 200.0,
+      "nu": 0.3
+    },
+    "comment": "轴对称模型，使用钢材参数"
+  },
+  "solver": {
+    "steps": 1,
+    "tolerance": 1e-8,
+    "max_iterations": 1
+  },
+  "output": {
+    "datadirname": "data-axisym",
+    "postprocessdirname": "postprocess-axisym"
+  },
+  "boundaryConditions": [
+    {
+      "blk": 0,
+      "face": "bottom",
+      "bc": "dirichlet_uy",
+      "value": 0.0,
+      "comment": "底部固定（z=0，轴向位移为零）"
+    },
+    {
+      "blk": 0,
+      "face": "left",
+      "bc": "traction_x",
+      "value": -5.0,
+      "comment": "内表面施加径向压力 pi = 5.0 MPa（负号表示向内）"
+    },
+    {
+      "blk": 0,
+      "face": "right",
+      "bc": "traction_x",
+      "value": 0.0,
+      "comment": "外表面无压力（自由边界）"
+    },
+    {
+      "blk": 0,
+      "face": "top",
+      "bc": "traction_y",
+      "value": 0.0,
+      "comment": "顶部无轴向载荷（自由边界）"
+    }
+  ],
+  "comment": "轴对称厚壁圆柱算例 - Lamé 解析解验证：内压 pi=5.0 MPa，外压 po=0，a=1.0，b=2.0。解析解：σr(r) = pi*a²/(b²-a²)*(1-b²/r²), σθ(r) = pi*a²/(b²-a²)*(1+b²/r²), σz = 0（平面应变）"
+}

@@ -1,0 +1,55 @@
+{
+  "geometry": {
+    "kind": "custom",
+    "blocks": [
+      {
+        "id": 0,
+        "vertices": [[1, 0],[2, 0],[2, 2],[0.707106781186548, 0.707106781186548],[1.5, 0],[2, 1],[1.35355339059327, 1.35355339059327],[0.923879532511287, 0.382683432365090]],
+        "label": "Block 0",
+        "type": 0
+      },
+      {
+        "id": 1,
+        "vertices": [[0, 1],[0.707106781186548, 0.707106781186548],[2, 2],[0, 2],[0.382683432365090, 0.923879532511287], [1.35355339059327, 1.35355339059327], [1, 2], [0, 1.5]],
+        "label": "Block 1",
+        "type": 0
+      }
+    ]
+  },
+  "discretization": { "node": 21 },
+
+  "material": {
+    "model": "linear_elastic",
+    "plane_strain": true,
+    "defaults": { "E": 1.0, "nu": 0.30 },
+    "per_block": {
+      "0": { "E": 1.0, "nu": 0.30 },
+      "1": { "E": 1.0,  "nu": 0.30 }
+    }
+  },
+
+  "solver": {
+    "steps": 1,
+    "tolerance": 1e-8,
+    "max_iterations": 1
+  },
+  "output": {
+    "datadirname": "data-web",
+    "postprocessdirname": "postprocess-web"
+  },
+
+  "interfaces": [
+    {
+      "master_blk": 0,
+      "master_face": "top",
+      "slave_blk": 1,
+      "slave_face": "right"
+    }
+  ],
+
+  "boundaryConditions": [
+    { "blk": 1, "face": "top", "bc": "traction_y",  "value": 1.0 },
+    { "blk": 1, "face": "left",  "bc": "dirichlet_ux","value": 0.0 },
+    { "blk": 0, "face": "bottom",  "bc": "dirichlet_uy","value": 0.0 }
+  ]
+}

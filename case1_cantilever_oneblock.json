@@ -1,0 +1,52 @@
+{
+  "geometry": {
+    "blocks": [
+      {
+        "id": 0,
+        "vertices": [[0, 0], [4, 0], [4, 1], [0, 1]],
+        "type": 0
+      }
+    ]
+  },
+  "discretization": {
+    "node": 71
+  },
+  "material": {
+    "model": "linear_elastic",
+    "plane_strain": true,
+    "defaults": {
+      "E": 1.0,
+      "nu": 0.3
+    }
+  },
+  "solver": {
+    "steps": 1,
+    "tolerance": 1e-8,
+    "max_iterations": 1
+  },
+  "output": {
+    "datadirname": "data-web",
+    "postprocessdirname": "postprocess-web"
+  },
+  "boundaryConditions": [
+    {
+      "blk": 0,
+      "face": "left",
+      "bc": "dirichlet_ux",
+      "value": 0.0
+    },
+    {
+      "blk": 0,
+      "face": "left",
+      "bc": "dirichlet_uy",
+      "value": 0.0
+    },
+    {
+      "blk": 0,
+      "face": "right",
+      "bc": "traction_y",
+      "value": -1.0
+    }
+  ],
+  "comment": "悬臂梁算例 - 左端固定，右端施加向下载荷，上下表面为自由边界（零应力）"
+}
